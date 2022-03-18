@@ -1,0 +1,35 @@
+{
+    "name": "prayer-app-uploader",
+    "version": "1.0.0",
+    "description": "uploader for prayer app",
+    "scripts": {
+        "watch-css": "postcss resources/css/main.css -o public/assets/app.css -w",
+        "build-css": "cross-env ENV_BUILD=prod postcss resources/css/main.css -o public/assets/app.css",
+        "watch-js": "esbuild resources/ts/main.ts --bundle --sourcemap=inline --target=es2016 --outfile=public/assets/app.js --watch",
+        "debug-js": "esbuild resources/ts/main.ts --bundle --sourcemap=inline --target=es2016 --outfile=public/assets/app.js --servedir=./",
+        "build-js": "esbuild resources/ts/main.ts --bundle --minify --target=es2016 --outfile=public/assets/app.js",
+        "start": "concurrently \"npm:watch-css\" \"npm:watch-js\"",
+        "dev": "concurrently \"npm:watch-css\" \"npm:debug-js\"",
+        "build": "npm run build-css && npm run build-js"
+    },
+    "author": "Jannie Theunissen",
+    "license": "MIT",
+    "dependencies": {
+        "alpinejs": "^2.8.0",
+        "tailwindcss": "^2.0.3"
+    },
+    "devDependencies": {
+        "@fullhuman/postcss-purgecss": "^4.0.0",
+        "autoprefixer": "^10.0.1",
+        "concurrently": "^5.3.0",
+        "copyfiles": "^2.4.0",
+        "cross-env": "^7.0.2",
+        "cssnano": "^4.1.10",
+        "esbuild": "^0.8.46",
+        "postcss": "^8.1.1",
+        "postcss-cli": "^8.1.0",
+        "postcss-copy": "^7.1.0",
+        "postcss-import": "^14.0.0",
+        "typescript": "^4.0.3"
+    }
+}

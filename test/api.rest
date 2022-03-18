@@ -1,0 +1,14 @@
+@host = http://localhost:8080
+
+
+GET {{host}} HTTP/1.1
+
+###
+GET {{host}}/hello HTTP/1.1
+
+###
+GET {{host}}?password=this%20is%20it HTTP/1.1
+###
+GET {{host}}?password=%23REACH2020 HTTP/1.1
+###
+GET {{host}}?password=not it HTTP/1.1

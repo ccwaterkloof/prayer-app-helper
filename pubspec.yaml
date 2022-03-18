@@ -1,0 +1,11 @@
+name: token_keeper
+
+publish_to: none #dont publish to pub.dev
+description: CCW token vault
+
+environment:
+  sdk: ">=2.16.1 <3.0.0"
+
+dependencies:
+  alfred:
+  dotenv: ^3.0.0

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/uploader/" />
+
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta name="description" content="Image uploader" />
+
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="counter" />
+    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="assets/app.css" />
+
+    <title>Prayer App Uploads</title>
+  </head>
+  <body>
+    <div class="container mx-auto space-y-8 mt-8" x-data="uploader()">
+      <div class="c">
+        <form
+          action="upload"
+          method="post"
+          enctype="multipart/form-data"
+          name="dropForm"
+          x-ref="dropForm"
+          @submit.prevent="onSubmit"
+        >
+          <div
+            class="h-64 w-full bg-green-200 flex items-center justify-center"
+            @dragover.prevent
+            @drop="onDrop"
+          >
+            <label class="btn btn-green px-4">
+              select or drop a file
+              <input
+                type="file"
+                name="memberImage"
+                x-ref="fileToUpload"
+                class="opacity-0 absolute"
+                onchange="this.form.submit();"
+              />
+            </label>
+          </div>
+        </form>
+      </div>
+
+      <div x-show="feedback">
+        <h3 class="text-xl font-bold">Result</h3>
+        <pre class="text-gray-400 py-4" x-text="feedback"></pre>
+      </div>
+    </div>
+
+    <script src="assets/app.js" type="application/javascript" defer></script>
+  </body>
+</html>
