@@ -30,12 +30,15 @@
           x-ref="dropForm"
           @submit.prevent="onSubmit"
         >
+          <dv class="my-2">
+            <input type="password" name="password" placeholder="Password" />
+          </dv>
           <div
             class="h-64 w-full bg-green-200 flex items-center justify-center"
             @dragover.prevent
             @drop="onDrop"
           >
-            <label class="btn btn-green px-4">
+            <label class="btn">
               select or drop a file
               <input
                 type="file"

@@ -1,2 +1,9 @@
 .env
 node_modules/
+
+# Dart/Pub related
+**/doc/api/
+.dart_tool/
+.packages
+.pub-cache/
+.pub/

@@ -8,4 +8,5 @@ environment:
 
 dependencies:
   alfred:
+  cloudinary_sdk: ^3.0.1+7
   dotenv: ^3.0.0

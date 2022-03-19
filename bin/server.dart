@@ -1,9 +1,7 @@
-import 'dart:io';
-
 import 'package:alfred/alfred.dart';
 import 'package:token_keeper/vault_controller.dart';
-import 'package:token_keeper/frontend_controller.dart';
-import 'package:dotenv/dotenv.dart' show load;
+import 'package:token_keeper/upload_controller.dart';
+import 'package:dotenv/dotenv.dart' show load, env;
 
 void main() async {
   load();
@@ -12,11 +10,11 @@ void main() async {
 
   app.get('/', VaultController().index);
 
-  app.get('/uploader/*', FrontendController().assets);
-  app.get('/uploader/*', FrontendController().index);
-  app.post('/uploader/upload', FrontendController().upload);
+  app.get('/uploader/*', UploadController().assets);
+  app.get('/uploader/*', UploadController().index);
+  app.post('/uploader/upload', UploadController().upload);
 
-  final envPort = Platform.environment['PORT'];
+  final envPort = env['PORT'];
 
   final server = await app.listen(envPort != null ? int.parse(envPort) : 8080);
 
