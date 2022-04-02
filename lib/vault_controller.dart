@@ -5,15 +5,16 @@ import 'package:alfred/alfred.dart';
 import 'package:dotenv/dotenv.dart' show env;
 
 class VaultController {
-  // VaultController._() {
-  //   load();
-  // }
+  FutureOr info(HttpRequest req, HttpResponse res) async {
+    final dir = Directory('./');
+    final List<String> files =
+        await dir.list().map((entity) => entity.path).toList();
 
-  // static final VaultController _instance = VaultController._();
-
-  // factory VaultController() {
-  //   return _instance;
-  // }
+    return {
+      'files': files.join(' : '),
+      'cloud_name': env['CLOUDINARY_CLOUD_NAME']
+    };
+  }
 
   FutureOr index(HttpRequest req, HttpResponse res) async {
     final password = req.uri.queryParameters['password'];
@@ -21,7 +22,7 @@ class VaultController {
       throw AlfredException(401, {'message': 'authentication failed'});
 
     final tokens = {
-      'kee': env['API_KEY'],
+      'key': env['API_KEY'],
       'token': env['API_TOKEN'],
     };
 

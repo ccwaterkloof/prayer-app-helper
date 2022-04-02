@@ -1,3 +1,4 @@
+@host = https://prayer-token-mdopc5nrfa-ew.a.run.app
 @host = http://localhost:8080
 
 

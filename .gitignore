@@ -1,5 +1,6 @@
 .env
 node_modules/
+public/assets/
 
 # Dart/Pub related
 **/doc/api/
@@ -7,3 +8,4 @@ node_modules/
 .packages
 .pub-cache/
 .pub/
+build

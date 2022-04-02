@@ -1,5 +1,4 @@
 export default () => ({
-  isReady: false,
   feedback: "",
 
   onDrop(e: any): void {

@@ -9,14 +9,15 @@ void main() async {
   final app = Alfred();
 
   app.get('/', VaultController().index);
+  app.get('/info', VaultController().info);
 
   app.get('/uploader/*', UploadController().assets);
   app.get('/uploader/*', UploadController().index);
   app.post('/uploader/upload', UploadController().upload);
 
-  final envPort = env['PORT'];
+  final envPort = env['PORT'] ?? "8080";
 
-  final server = await app.listen(envPort != null ? int.parse(envPort) : 8080);
+  final server = await app.listen(int.parse(envPort));
 
   print("Listening on ${server.port}");
 }
