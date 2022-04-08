@@ -1,6 +1,6 @@
 .env
 node_modules/
-public/assets/
+# public/assets/
 
 # Dart/Pub related
 **/doc/api/

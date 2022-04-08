@@ -6,7 +6,7 @@ import 'package:dotenv/dotenv.dart' show env;
 
 class VaultController {
   FutureOr info(HttpRequest req, HttpResponse res) async {
-    final dir = Directory('./');
+    final dir = Directory('./public/assets');
     final List<String> files =
         await dir.list().map((entity) => entity.path).toList();
 
